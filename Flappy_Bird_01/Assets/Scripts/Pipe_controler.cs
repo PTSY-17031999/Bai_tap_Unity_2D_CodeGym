@@ -5,8 +5,21 @@ using UnityEngine;
 public class Pipe_Controler : MonoBehaviour
 {
    public Pipe _Pipe;
+   public float Time_inset;
+   float Count_time;
+    private void Start()
+    {
+        Count_time = 0; 
+    }
+    private void Update()
+    {
+        Count_time += Time.deltaTime;
+        if (Time_inset > Count_time) { return; }
+        Inset_pipe();
+    }
     public void Inset_pipe()
     {
+        Count_time = 0;
         float Ngau_nhien_Y = Random.Range(-3.45f, 0.9f);
         Vector2 Vi_tri_se_tao = new Vector2(3.2f, Ngau_nhien_Y);
         if (_Pipe)// NẾU VẬT CẢN CHƯA GÁN VÀO THÌ KHÔNG CHẠY

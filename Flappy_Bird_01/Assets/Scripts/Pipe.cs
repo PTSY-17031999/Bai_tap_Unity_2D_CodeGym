@@ -24,10 +24,6 @@ public class Pipe : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (transform.position.x < 1.42 + (Time.deltaTime/1.25) && transform.position.x > 1.42)
-        {
-            _Pipe_Controler.Inset_pipe();
-        }
        
 
 

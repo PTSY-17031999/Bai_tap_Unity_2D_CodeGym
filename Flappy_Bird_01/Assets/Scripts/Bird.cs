@@ -21,7 +21,8 @@ public class Bird : MonoBehaviour
         bool Phim_khoang_cach_duoc_nhan = Input.GetKeyDown(KeyCode.Space);
         if (Phim_khoang_cach_duoc_nhan)
         {
-            ThamChieuToiNhaVat.AddForce(new Vector2(0, LucNhay) , ForceMode2D.Force);
+            ThamChieuToiNhaVat.AddForce(Vector2.up * LucNhay);
+            //ThamChieuToiNhaVat.AddForce(new Vector2(0, LucNhay) , ForceMode2D.Force);
         }
 
         /* * KIỂM TRA XEM NGƯỜI CHƠI CÓ NHẤN PHÍM KHOẢNG CÁCH KO VÀ NHÂN VẬT CÓ

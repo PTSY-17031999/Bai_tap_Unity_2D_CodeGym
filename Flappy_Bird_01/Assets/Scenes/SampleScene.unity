@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Pipe: {fileID: -6135068425407608850, guid: cf7ae3f144b7b064f9e0b3a66f62bad0, type: 3}
+  Time_inset: 2.5
 --- !u!114 &304909848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Pipe: {fileID: 0}
+  Time_inset: 0
 --- !u!4 &304909849
 Transform:
   m_ObjectHideFlags: 0
