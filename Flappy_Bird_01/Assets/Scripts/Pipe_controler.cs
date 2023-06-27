@@ -2,31 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pipe_controler : MonoBehaviour
+public class Pipe_Controler : MonoBehaviour
 {
-    public float moving_speed;     // Vận tốc di chuyển
-    Pipe_controler Pipe;
-
-    // Start is called before the first frame update
-    void Start()
+   public Pipe _Pipe;
+    public void Inset_pipe()
     {
-        moving_speed = (moving_speed / 10000);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position -= new Vector3(moving_speed, 0, 0);
-
-/*
-        if (transform.position.x > 5.0 && transform.position.x < 5.0 + moving_speed)
+        float Ngau_nhien_Y = Random.Range(-3.45f, 0.9f);
+        Vector2 Vi_tri_se_tao = new Vector2(3.2f, Ngau_nhien_Y);
+        if (_Pipe)// NẾU VẬT CẢN CHƯA GÁN VÀO THÌ KHÔNG CHẠY
         {
-            //Pipe.CreateCloud();
-
+            Instantiate(_Pipe, Vi_tri_se_tao, Quaternion.identity);
         }
-        if (transform.position.x > 11.2)
-        {
-            Destroy(gameObject);
-        }*/
     }
 }
