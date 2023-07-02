@@ -8,7 +8,7 @@ public class Ui_Controler : MonoBehaviour
    public Text Score_Over;
    public Text Hight_Score;
    public Text Score_Main;
-   public Image Medal;
+   public GameObject Medal;
    public GameObject Panel_Over;
    public GameObject Panel_Main;
    public GameObject Panel_Star;
@@ -19,13 +19,23 @@ public class Ui_Controler : MonoBehaviour
         if (Score_Main) Score_Main.text = _score.ToString();
 
     }
+    private void Start()
+    {
+        
+
+        GameObject huyChuongVang = Resources.Load<GameObject>("Bac");
+        Instantiate(huyChuongVang, Medal.transform);
+    }
 
     public void Show_Score_on_Panel_Over(int _score, int _Hight_score)
     {
-        if(Score_Over && Hight_Score)
+        if(Score_Over && Hight_Score && Medal)
         {
-            Sprite Huy_chuong_vang =  Resources.Load <Sprite>("Assets/Image/Mobile - Flappy Bird - Version 12 Sprites_72.prefab");
-            Medal.sprite = Huy_chuong_vang;
+            string Huy_chuong = "Dong";
+            if (_score > 4) Huy_chuong = "Bac";
+            if (_score > 6) Huy_chuong = "Vang";
+            GameObject huyChuong = Resources.Load<GameObject>(Huy_chuong);
+            Instantiate(huyChuong, Medal.transform);
             Score_Over.text = _score.ToString();
             Hight_Score.text = _Hight_score.ToString();
 
@@ -60,6 +70,7 @@ public class Ui_Controler : MonoBehaviour
             Panel_Star.SetActive(show_or_hide);
         }
     }
+
 
 
 }

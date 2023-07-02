@@ -24,6 +24,7 @@ public class Bird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_Game_Controler.Get_Over_Game()) return;
         bool Phim_khoang_cach_duoc_nhan = Input.GetKeyDown(KeyCode.Space);
         if (Phim_khoang_cach_duoc_nhan && At_bay)
         {
@@ -48,7 +49,10 @@ public class Bird : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Pipe") || col.gameObject.CompareTag("Ground"))
         {
-            _Game_Controler.Set_Over_Game(true);
+            if (_Game_Controler.Get_Over_Game() == false)
+            {
+                _Game_Controler.Set_Over_Game(true);
+            }
         }
     }
 

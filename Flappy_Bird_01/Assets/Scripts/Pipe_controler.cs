@@ -7,12 +7,15 @@ public class Pipe_Controler : MonoBehaviour
    public Pipe _Pipe;
    public float Time_inset;
    float Count_time;
+   Game_Controler _Game_Controle;
     private void Start()
     {
-        Count_time = 0; 
+        Count_time = 0;
+        _Game_Controle = FindObjectOfType<Game_Controler>();
     }
     private void Update()
     {
+        if (_Game_Controle.Get_Over_Game()) return;
         Count_time += Time.deltaTime;
         if (Time_inset > Count_time) { return; }
         Inset_pipe();

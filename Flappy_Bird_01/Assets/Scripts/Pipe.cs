@@ -23,7 +23,7 @@ public class Pipe : MonoBehaviour
     {
         transform.position -= new Vector3(moving_speed, 0, 0);
 
-        if (transform.position.x < -3.26)
+        if (transform.position.x < -3.26 || _Game_Controler.Get_Over_Game())
         {
             Destroy(gameObject);
         }
