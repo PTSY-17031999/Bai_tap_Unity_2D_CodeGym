@@ -6,13 +6,16 @@ public class Pipe : MonoBehaviour
 {
     public float moving_speed;     // Vận tốc di chuyển
     Pipe_Controler _Pipe_Controler;
+    Game_Controler _Game_Controler;
 
     // Start is called before the first frame update
     void Start()
     {
         moving_speed = (moving_speed / 10000);
         _Pipe_Controler = FindObjectOfType<Pipe_Controler>();
-       
+        _Game_Controler = FindObjectOfType<Game_Controler>();
+
+
     }
 
     // Update is called once per frame
@@ -33,9 +36,9 @@ public class Pipe : MonoBehaviour
     //SỰ KIỆN NHÂN VẬT CHẠM VỚI VẬT CẢN
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Location_plus_points"))
+        if (col.CompareTag(" Location_plus_points"))
         {
-            Debug.Log("Pass");
+            _Game_Controler.Plub_Score(1);
 
         }
     }

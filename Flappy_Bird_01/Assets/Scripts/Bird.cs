@@ -7,10 +7,16 @@ public class Bird : MonoBehaviour
     public float moving_speed;     // Vận tốc di chuyển
     Rigidbody2D ThamChieuToiNhaVat;
     public float LucNhay;
+    public AudioSource tham_chieu_den_cac_file_am_thanh;
+    public AudioClip At_bay;
+    public AudioClip At_chet;
+    Game_Controler _Game_Controler;
     // Start is called before the first frame update
     void Start()
     {
-        LucNhay = 500;
+        _Game_Controler = FindObjectOfType<Game_Controler>();
+        ThamChieuToiNhaVat = GetComponent<Rigidbody2D>();
+        LucNhay = 250;
             moving_speed = (moving_speed / 10000);
         
     }
@@ -19,9 +25,11 @@ public class Bird : MonoBehaviour
     void Update()
     {
         bool Phim_khoang_cach_duoc_nhan = Input.GetKeyDown(KeyCode.Space);
-        if (Phim_khoang_cach_duoc_nhan)
+        if (Phim_khoang_cach_duoc_nhan && At_bay)
         {
             ThamChieuToiNhaVat.AddForce(Vector2.up * LucNhay);
+            tham_chieu_den_cac_file_am_thanh.PlayOneShot(At_bay);
+
             //ThamChieuToiNhaVat.AddForce(new Vector2(0, LucNhay) , ForceMode2D.Force);
         }
 
@@ -40,7 +48,7 @@ public class Bird : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Pipe") || col.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("Game over 1");
+            _Game_Controler.Set_Over_Game(true);
         }
     }
 
