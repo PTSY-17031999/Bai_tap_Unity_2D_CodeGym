@@ -24,7 +24,7 @@ public class Ui_Controler : MonoBehaviour
     {
         if(Score_Over && Hight_Score)
         {
-            Sprite Huy_chuong_vang =  Resources.Load <Sprite>("Mobile - Flappy Bird - Version 12 Sprites_47");
+            Sprite Huy_chuong_vang =  Resources.Load <Sprite>("Assets/Image/Mobile - Flappy Bird - Version 12 Sprites_72.prefab");
             Medal.sprite = Huy_chuong_vang;
             Score_Over.text = _score.ToString();
             Hight_Score.text = _Hight_score.ToString();
