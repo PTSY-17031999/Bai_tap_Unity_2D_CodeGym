@@ -36,6 +36,7 @@ public class Game_Controler : MonoBehaviour
 
     public void GameOver()
     {
+         High_score = PlayerPrefs.GetInt("High_score"); 
         _UI.Show_Score_on_Panel_Over(Score, High_score);
         _UI.setShowOrHidePanellOver(true);
     }
@@ -45,11 +46,12 @@ public class Game_Controler : MonoBehaviour
     {
         if (!Game_over)
             Score += score;
-        if (Score >= High_score) {
+        if (Score >= High_score)
+        {
             High_score = Score;
             PlayerPrefs.SetInt("High_score", High_score); // Lưu điểm cao nhất vào file ghi lại
             //int value = PlayerPrefs.GetInt("High_score"); câu lệnh lấy điểm ra
-        }else High_score = PlayerPrefs.GetInt("High_score");
+        }
 
         _UI.Show_Score_on_Panel(Score);
     }
@@ -81,10 +83,21 @@ public class Game_Controler : MonoBehaviour
 
     public void Play_Again()
     {
-       
         SceneManager.LoadScene("Scene_1");
-        Debug.Log(PlayerPrefs.GetInt("High_score"));
-        High_score = PlayerPrefs.GetInt("High_score");
+    }
 
+    bool _Pause = false;
+    public void Pause_game()
+    {
+        if (_Pause)
+        {
+            _Pause = false;
+        }else _Pause = true;
+
+        
+    }
+    public bool Get_Pause_Game()
+    {
+        return _Pause;
     }
 }

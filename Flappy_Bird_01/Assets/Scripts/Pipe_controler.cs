@@ -15,6 +15,7 @@ public class Pipe_Controler : MonoBehaviour
     }
     private void Update()
     {
+        if (_Game_Controle.Get_Pause_Game()) return;
         if (_Game_Controle.Get_Over_Game()) return;
         Count_time += Time.deltaTime;
         if (Time_inset > Count_time) { return; }

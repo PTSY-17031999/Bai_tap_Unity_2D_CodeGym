@@ -21,6 +21,7 @@ public class Pipe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_Game_Controler.Get_Pause_Game()) return;
         transform.position -= new Vector3(moving_speed, 0, 0);
 
         if (transform.position.x < -3.26 || _Game_Controler.Get_Over_Game())
