@@ -62,7 +62,7 @@
     <Compile Include="Assets\Scripts\Pipe_Controler.cs" />
     <Compile Include="Assets\Scripts\Bird.cs" />
     <Compile Include="Assets\Scripts\Input_Manager.cs" />
-    <Compile Include="Assets\Animation\Script\Cat_move.cs" />
+    <Compile Include="Assets\Animation_Test\Script\Cat_move.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
